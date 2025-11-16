@@ -1,9 +1,6 @@
 # 🧠 Mercor AI Text Detection  
 ### Detecting AI-Generated Writing Using XGBoost, Optuna, RoBERTa-Base & RoBERTa-Large
 
-<p align="center">
-  <img src="https://i.imgur.com/lNsx1wV.png" width="800">
-</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge">
@@ -85,7 +82,76 @@ Used Optuna to tune:
   "gamma": 0,
   "colsample_bytree": 1.0
 }
+```
 Improved Score
 Best R²: 0.885
+
+## 3️⃣ RoBERTa-Base Fine-Tuning
+
+Fine-tuned HuggingFace’s:
+
+### **Setup**
+- HuggingFace Trainer API  
+- AdamW optimizer  
+- Linear LR scheduler  
+- CrossEntropyLoss  
+- GPU acceleration  
+
+### **Results**
+RoBERTa-Base shows significantly better contextual understanding than all classical ML models, capturing semantics, tone, and coherence more effectively.
+
+---
+
+## 4️⃣ RoBERTa-Large Fine-Tuning (Best Model)
+
+
+### **Why It Wins**
+- 355M parameters  
+- Superior contextual depth  
+- Better sensitivity to writing style patterns  
+- Stronger coherence and fluency detection  
+
+### **Notes**
+- Requires more GPU memory  
+- Achieved **best validation accuracy & F1 score**  
+- Used for **final leaderboard submissions**
+
+---
+
+## 📊 Model Performance Summary
+
+| Model                | Accuracy | F1 Score | Notes                        |
+|----------------------|----------|----------|------------------------------|
+| **XGBoost**          | ~0.66    | ~0.77    | Good baseline                |
+| **Optuna-Tuned XGBoost** | ↑        | ↑        | Stable & optimized           |
+| **RoBERTa-Base**     | Higher   | Higher   | Strong Transformer baseline  |
+| **RoBERTa-Large**    | **Best** | **Best** | Final model used             |
+
+---
+
+## 🛠️ Installation
+
+### Install dependencies:
+```bash
+
+pip install transformers torch scikit-learn xgboost optuna pandas numpy
+```
+
+## ▶️ How to Run
+1️⃣ XGBoost + Optuna
+- jupyter notebook notebooks/Mercor_AI_Text_Detection.ipynb
+
+2️⃣ RoBERTa-Base
+- jupyter notebook notebooks/Robertabase.ipynb
+
+3️⃣ RoBERTa-Large
+- jupyter notebook notebooks/Robertalarge.ipynb
+
+## 📁 Outputs
+- File	Description
+- submission.csv	XGBoost predictions
+- submission_roberta.csv	RoBERTa-base predictions
+
+
 
 
